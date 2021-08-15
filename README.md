@@ -63,6 +63,12 @@ const {Product, Profile, Shop} = require('./models');
 const app = express();
 app.use(express.json());
 
+const productPermissions = {
+    select: '',
+    dontSelect: [{ path: 'author', select: ['password','email'] }],
+    populate: [''],
+};
+
 const Router = express.Router();
 // PROFILE Service
 Router.post('/profiles/', CRUD(Profile).create);
