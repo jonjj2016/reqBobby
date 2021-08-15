@@ -49,33 +49,8 @@ const controller = asyncHandler(async (req, res) => {
   }
 });
 ```
-#### Status Codes for Errors
-```js
-  . 400 Bad Request
-  . 401 Unauthorized
-  . 404 Not Found
-  . 500 Server Error
-```
-### API Documentation
 
-Flair Server generates API Documentation with Swagger
 
-```js
-const swaggerUI = require('swagger-ui-express');
-const swaggerJSDoc = require('swagger-jsdoc');
-```
-### To Get the API Documentation
-
-```sh
-npm start
-```
-*Note API Documentation is not available on Production mode
-
-*When the serever is up and running
-
-** Open your Browser and visit http://localhost:3003/api-docs/
-
-![Image of API Documentation](https://i.imgur.com/GfURuRd.png)
 ### `expressWebService( [options] )`
 
 Create and return a middleware for serving webservice endpoints, customisable.
