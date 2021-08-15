@@ -50,54 +50,177 @@ const controller = asyncHandler(async (req, res) => {
 });
 ```
 
-
-### `expressWebService( [options] )`
-
-Create and return a middleware for serving webservice endpoints, customisable.
 ### Examples
-
-API creation example:
 
 In app.js file
 ```JS
-const customRouter = require('./routes/V2/customRouter');
-const app = express()
-
-
-// mount on a sub-path
-app.use("/example", customRouter);
-
-```
-In router
-```JS
 const express = require('express');
-const { customFindAll, customGetById } = require('../../controllers/custom');
-const { findQuery, getQuery } = require('../../middlewares/parseQuery');
-const Model = require('../../models/model')
+const {CRUD, findQuery, getQuery, authorize, handleErrors} = require('reqbobby');
+const db = require('./db');
+db();
+const {Product, Profile, Shop} = require('./models');
 
-const router = express.Router();
+const app = express();
+app.use(express.json());
 
-router.get('/', findQuery(Model) customFindAll);
-router.get('/:id', getQuery(Model) customGetById);
+const Router = express.Router();
+// PROFILE Service
+Router.post('/profiles/', CRUD(Profile).create);
+Router.get('/profiles/',findQuery(Profile), CRUD().find);
+Router.get('/profiles/:id',getQuery(Profile), CRUD().get);
+Router.patch('/profiles/:id', CRUD(Profile).patch);
+Router.delete('/profiles/:id', CRUD(Profile).remove);
 
-module.exports = router;
+// PRODUCT Service
+Router.post('/products/', CRUD(Product).create);
+Router.get('/products/', authorize(productPermissions), findQuery(Product), CRUD().find);
+Router.get('/products/:id', authorize(productPermissions), getQuery(Product), CRUD().get);
+Router.patch('/products/:id', CRUD(Product).patch);
+Router.delete('/products/:id', CRUD(Product).remove);
+
+// Shop Service
+Router.post('/shops/', CRUD(Shop).create);
+Router.get('/shops/',findQuery(Shop), CRUD().find);
+Router.get('/shops/:id',getQuery(Shop), CRUD().get);
+Router.patch('/shops/:id', CRUD(Shop).patch);
+Router.delete('/shops/:id', CRUD(Shop).remove);
+
+app.use(Router);
+
+app.use(handleErrors.notFound)
+app.use(handleErrors.errorHandler)
+const PORT = process.env.PORT || 4000;
+
+app.listen(PORT,()=>console.log(`App is running on PORT: ${PORT}`));
 ```
-In controller
+In ./db
 ```JS
-const customFindAll = asyncHandler(async (req, res) => {
-  res.status(200).json({
-    ...req.Bobby
-  });
-});
+const mongoose = require('mongoose');
 
-const customGetById = asyncHandler(async (req, res) => {
-  res.status(200).json({
-    ...req.Bobby,
-  });
-});
-
-module.exports = { customFindAll, customGetById };
+module.exports =()=>{
+    mongoose.connect('mongodb://localhost:27017/my_bobby_test', {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+  },()=>console.log('DB is running'));
+}
 ```
+In ./models
+```JS
+const mongoose = require('mongoose');
+
+const ProfileSchema = new mongoose.Schema(
+    {
+      email: {
+        type: String,
+        required: true,
+        trim: true,
+        unique: true,
+      },
+      password: {
+        type: String,
+        required: true,
+        trim: true,
+        selsect: false,
+      },
+      name: {
+        type: String,
+        trim: true,
+      },
+      age: {
+        type: Number,
+      },
+    },
+    {
+      timestamps: true,
+    },
+  );
+  
+
+  const ProducSchema = new mongoose.Schema(
+    {
+      brand: {
+        type: String,
+        required: true,
+        trim: true,
+      },
+      description: {
+        type: String,
+        trim: true,
+      },
+      category: {
+        type: String,
+        enum: ['tech', 'clothes', 'services'],
+        default: 'tech',
+      },
+      author: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Profile',
+        required: true,
+      },
+      price: {
+          type: Number,
+          required: true,
+      },
+      model: {
+          type: String,
+          required: true,
+      }
+    },
+    {
+      timestamps: true,
+    },
+);
+  
+const ShopSchema = new mongoose.Schema(
+    {
+      name: {
+        type: String,
+        required: true,
+        trim: true,
+      },
+      description: {
+        type: String,
+        trim: true,
+      },
+      category: {
+        type: String,
+        enum: ['tech', 'clothes', 'services'],
+        default: 'tech',
+      },
+      manger: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Profile',
+        required: true,
+      },
+      ecosystem: {
+          type: String,
+          required: true,
+      },
+      products: [{
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'product',
+      }]
+    },
+    {
+      timestamps: true,
+    },
+  );
+  
+
+const Profile = mongoose.model('Profile', ProfileSchema);
+const Product = mongoose.model('product', ProducSchema);
+const Shop = mongoose.model('shop', ShopSchema);
+
+module.exports = {
+    Profile,
+    Product,
+    Shop,
+};
+
+```
+
 More details on how [`parseQuery`](#middlewares) workes
 What is [`Bobby`](#middlewares)
 
