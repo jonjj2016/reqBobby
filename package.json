@@ -1,12 +1,27 @@
 {
-  "name": "ReqBobby",
+  "name": "bobby",
   "version": "1.0.0",
-  "description": "",
+  "description": "Create [Express] APIs to serve [founderslair] Web Application.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["express","mongoose","nodejs","API","populate","query"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonjj2016/reqBobby.git"
+  },
+  "keywords": [
+    "[\"express\"",
+    "\"mongoose\"",
+    "\"nodejs\"",
+    "\"API\"",
+    "\"populate\"",
+    "\"query\"]"
+  ],
   "author": "Jon Martirosyan",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonjj2016/reqBobby/issues"
+  },
+  "homepage": "https://github.com/jonjj2016/reqBobby#readme"
 }
