@@ -4,7 +4,6 @@ Create [Express] APIs to serve [founderslair] Web Application.
 
 - [Usage](#usage)
   - [Start](#Start)
-  - [Environment](#environment)
   - [Test](#test)
   - [Error Handling](#error-hanfling)
   - [API Documentation](#api-documentation)
@@ -21,79 +20,16 @@ Create [Express] APIs to serve [founderslair] Web Application.
 
 ### Start
 
-First you need to clone git repository:
+First you need to install the package:
 
 ```sh
-git clone git@gitlab.com:founders-lair/express.git
-```
-Than you need to install NPM packages:
-
-```sh
-npm install
+npm install reqbobby
 ```
 
 To start the server:
 
 ```sh
 npm start
-```
-### Environment
-```sh
-    . Development
-    . Test
-    . Production
-```
-### Test
-We have automated tests for all Routes
-
-```sh
-npm test
-```
-```JS
-process.env.NODE_ENV = 'test';
-
-require('mongoose');
-const chai = require('chai');
-const chaiHttp = require('chai-http');
-chai.use(require('chai-date-string'));
-
-const should = chai.should();
-
-const server = require('../app');
-const { seed, cleanup } = require('./utils');
-
-
-chai.use(chaiHttp);
-describe('Description', () => {
-  beforeEach(async () => {
-    await cleanup();
-    await seed();
-  });
-  afterEach(async () => {
-    await cleanup();
-  });
-  it('Test request ', (done) => {
-      chai.request(server)
-      .post('/register')
-      .send({ email: 'email@test.com', password: 'secret' })
-      .end(async (_err, res) => {
-        //   check types of res.body
-        //   check values of res.body
-          done();
-      });
-  });
-});
-
-```
-Terminal example
-```sh
-    /GET Projects
-      ✔ naked request should return an array of projects with basic fields
-      ✔ Get by ID request should return Project object
-      ✔ authorization should ignore application populate as its included in BlackList
-      ✔ Patch request Unauthorized
-      ✔ landing page request should return an array with the right fields for unlogged users
-    34 passing (22s)
 ```
 
 ### Error Handling
@@ -244,7 +180,8 @@ Some responses contain more
 // Note data can be Array or Object depends on what route you hit
 
 ```
-### Middlewares
+### Dependencies
+  * No dependencies
 
 ## ParseQuery
  This is a middleware which takes request Query, Model
