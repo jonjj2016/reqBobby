@@ -284,6 +284,7 @@ Some responses contain more
 // Note data can be Array or Object depends on what route you hit
 
 ```
+  ### Custom Middlewares
 ```js
 const {CRUD, findQuery, getQuery, authorize, handleErrors} = require('reqbobby');
 const ProductModel = require('./models)
@@ -293,7 +294,6 @@ router.get('/products/:company', (req, res, next) => {
   next();
 }, findQuery(ProductModel), CRUD().find )
 ```
-### Custom Middlewares
 ### Dependencies
   * No dependencies
 
