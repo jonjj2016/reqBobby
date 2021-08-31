@@ -1,4 +1,4 @@
-# FOUNDERS LAIR Express Web Service
+# Bobbyjs - Automate CRUD and advanced query API with expressJS  
 
 Create [Express] APIs to serve [founderslair] Web Application.
 
@@ -315,18 +315,14 @@ Some responses contain more
     ]
 ```
 
-### DB structure
-
-![Image of DB structure](https://i.imgur.com/OPQ0t1R.png)
 #### About (`/__about`)
 
-[Founders Lair][founderslair], or FLair, is a free peer to peer platform for founders & startup enthusiasts, which strives to help entrepreneurs find faster the resources they need. Founders Lair is like a secret platform, a hideout that you can only enter and contribute to if you are a part of the startup ecosystem.
-
-Anybody traveling to another startup ecosystem, anyone interested in starting their business or navigating in their own city relies on insights of who they can trust. Having access to reliable information about startup ecosystems is however something most do not have. Finding trustworthy partners is a time intensive and tiring process. This is why we started Founders Lair.
+Bobby is tool to help you create robust APIs with advanced query features, give you tools to make db secure, out of the box you get Error handling, authorizar=tion toos to controll which fields should be populated and what client can select, minimize your time on bulding server by having basic CRUD Controllers (get,find,patch,remove,create)
 
 #### Error (`/__error`)
 
-This endpoint simply throws a JavaScript error, and makes no attempt to handle it. This is useful for testing the way that your application handles runtime errors in prod, both in terms of reporting them (eg to a logging or aggregation tool) and presenting an appropriate UI to the end user.
+This endpoint simply throws a JavaScript error, and catches all errors at the end.
+
 
 ## Contributing
 
@@ -344,10 +340,8 @@ If you have any questions or comments about this module, or need help using it, 
 
 This software is published by the Founders Lair under the [MIT licence][license].
 
-[#flair-support]: https://founderslair.com/about
 [express]: http://expressjs.com/
 [license]: http://opensource.org/licenses/MIT
 [node.js]: https://nodejs.org/
 [npm]: https://www.npmjs.com/
-[Flair Back End Support]: jon@founderslair.com
-[founderslair]: https://founderslair.com/
+[Bobby Support]: jon@founderslair.com
