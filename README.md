@@ -317,7 +317,7 @@ Some responses contain more
 
 #### About (`/__about`)
 
-Bobby is tool to help you create robust APIs with advanced query features, give you tools to make db secure, out of the box you get Error handling, authorizar=tion toos to controll which fields should be populated and what client can select, minimize your time on bulding server by having basic CRUD Controllers (get,find,patch,remove,create)
+Bobby is tool to help you create robust APIs with advanced query features, give you tools to make db secure, out of the box you get Error handling, authorization toos to controll which fields should be populated and what client can select, minimize your time on bulding server by having basic CRUD Controllers (get,find,patch,remove,create)
 
 #### Error (`/__error`)
 
