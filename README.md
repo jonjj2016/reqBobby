@@ -7,10 +7,10 @@ Create [Express] APIs to serve [founderslair] Web Application.
   - [Test](#test)
   - [Error Handling](#error-hanfling)
   - [API Documentation](#api-documentation)
+  - [Custom Middlewares](#Custom-Middlewares)
   - [Options](#options)
   - [Standart Response](#standart-response)
   - [Examples](#examples)
-  - [DB structure](#db-structure)
 - [Middlewares](#middlewares)
 - [Contributing](#contributing)
 - [Contact](#contact)
@@ -227,7 +227,7 @@ module.exports = {
 
 ```
 
-More details on how [`parseQuery`](#middlewares) workes
+More details on how [`## ReqBobby Response`](#middlewares) workes
 What is [`Bobby`](#middlewares)
 
 The result will be
@@ -284,10 +284,20 @@ Some responses contain more
 // Note data can be Array or Object depends on what route you hit
 
 ```
+```js
+const {CRUD, findQuery, getQuery, authorize, handleErrors} = require('reqbobby');
+const ProductModel = require('./models)
+
+router.get('/products/:company', (req, res, next) => {
+  // your custom logic with query here
+  next();
+}, findQuery(ProductModel), CRUD().find )
+```
+### Custom Middlewares
 ### Dependencies
   * No dependencies
 
-## ParseQuery
+## ReqBobby Response
  This is a middleware which takes request Query, Model
 
  It gives client ability to populate, select, paginate, limit, order and make basic query with the req.query
