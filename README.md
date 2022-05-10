@@ -327,7 +327,16 @@ router.get('/products/:company', (req, res, next) => {
 
 #### About (`/__about`)
 
-Bobby is tool to help you create robust APIs with advanced query features, give you tools to make db secure, out of the box you get Error handling, authorization toos to controll which fields should be populated and what client can select, minimize your time on bulding server by having basic CRUD Controllers (get,find,patch,remove,create)
+Bobby is tool to help you create robust APIs with advanced query features,
+* Give you tools to make db secure
+* Pagination https://exapmle.com?page=2
+* Select fields you want to be included in response https://exapmle.com?select=name
+* Populate Fields  https://exapmle.com?populate=author
+* limit amount of items included in response https://exapmle.com?limit=6
+* Query by property https://exapmle.com?name=Joe
+* Out of the box you get Error handling
+* Authorization toos to controll which fields should be populated and what client can select https://exapmle.com?populate=["author",{"path": ""}]
+* Minimize your time on bulding server by having basic CRUD Controllers (get,find,patch,remove,create)
 
 #### Error (`/__error`)
 
