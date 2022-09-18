@@ -1,7 +1,7 @@
 {
-  "name": "bobby",
+  "name": "bobby_query",
   "version": "1.0.0",
-  "description": "Create [Express] APIs to serve [founderslair] Web Application.",
+  "description": "Easily Create [Express] APIs to serve  Web Application.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,6 +12,8 @@
   },
   "keywords": [
     "[\"express\"",
+    "[\"mongodb\"",
+    "[\"CRUD\"",
     "\"mongoose\"",
     "\"nodejs\"",
     "\"API\"",
