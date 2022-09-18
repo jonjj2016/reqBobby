@@ -1,4 +1,4 @@
-# Bobbyjs - Automate CRUD and advanced query API with expressJS  
+# Bobbyjs - Automate CRUD and advanced query API with expressJS
 
 Create [Express] APIs to serve [founderslair] Web Application.
 
@@ -33,26 +33,30 @@ npm start
 ```
 
 ### Error Handling
+
 In our Server we user centralized Error Handling
+
 ```js
-const asyncHandler = require('express-async-handler');
+const asyncHandler = require('express-async-handler')
 ```
+
 ```js
 const controller = asyncHandler(async (req, res) => {
-    // Your code
-    const condition = 'any';
-    const statusCode = 'any'
+  // Your code
+  const condition = 'any'
+  const statusCode = 'any'
 
   if (condition) {
-      res.status(stausCode);
-      throw new Error('Your Eroor message');
+    res.status(stausCode)
+    throw new Error('Your Eroor message')
   }
-});
+})
 ```
 
 ### Examples
 
 In app.js file
+
 ```JS
 const express = require('express');
 const {CRUD, findQuery, getQuery, authorize, handleErrors} = require('reqbobby');
@@ -99,7 +103,9 @@ const PORT = process.env.PORT || 4000;
 
 app.listen(PORT,()=>console.log(`App is running on PORT: ${PORT}`));
 ```
+
 In ./db
+
 ```JS
 const mongoose = require('mongoose');
 
@@ -112,7 +118,9 @@ module.exports =()=>{
   },()=>console.log('DB is running'));
 }
 ```
+
 In ./models
+
 ```JS
 const mongoose = require('mongoose');
 
@@ -142,7 +150,7 @@ const ProfileSchema = new mongoose.Schema(
       timestamps: true,
     },
   );
-  
+
 
   const ProducSchema = new mongoose.Schema(
     {
@@ -178,7 +186,7 @@ const ProfileSchema = new mongoose.Schema(
       timestamps: true,
     },
 );
-  
+
 const ShopSchema = new mongoose.Schema(
     {
       name: {
@@ -213,7 +221,7 @@ const ShopSchema = new mongoose.Schema(
       timestamps: true,
     },
   );
-  
+
 
 const Profile = mongoose.model('Profile', ProfileSchema);
 const Product = mongoose.model('product', ProducSchema);
@@ -231,6 +239,7 @@ More details on how [`## ReqBobby Response`](#middlewares) workes
 What is [`Bobby`](#middlewares)
 
 The result will be
+
 ```JS
     {
     "status": true,
@@ -250,8 +259,11 @@ The result will be
      ]
     }
 ```
+
 #### Standart Response
+
 All responses contain STATUS and DATA
+
 ```js
 {
     status: true,
@@ -262,7 +274,9 @@ All responses contain STATUS and DATA
 // Note data can be Array or Object depends on what route you hit
 
 ```
+
 Some responses contain more
+
 ```js
 {
     status: true,
@@ -284,7 +298,9 @@ Some responses contain more
 // Note data can be Array or Object depends on what route you hit
 
 ```
-  ### Custom Middlewares
+
+### Custom Middlewares
+
 ```js
 const {CRUD, findQuery, getQuery, authorize, handleErrors} = require('reqbobby');
 const ProductModel = require('./models)
@@ -294,15 +310,19 @@ router.get('/products/:company', (req, res, next) => {
   next();
 }, findQuery(ProductModel), CRUD().find )
 ```
+
 ### Dependencies
-  * No dependencies
+
+- No dependencies
 
 ## ReqBobby Response
- This is a middleware which takes request Query, Model
 
- It gives client ability to populate, select, paginate, limit, order and make basic query with the req.query
- example
- https://example_page.to/exaples?select=_id+user&page=2&limit=3&populate=user&limit=3
+This is a middleware which takes request Query, Model
+
+It gives client ability to populate, select, paginate, limit, order and make basic query with the req.query
+example
+https://example_page.to/exaples?select=_id+user&page=2&limit=3&populate=user&limit=3
+
 ```JS
     req.Bobby ={
         "status": true,
@@ -333,7 +353,6 @@ Bobby is tool to help you create robust APIs with advanced query features, give 
 
 This endpoint simply throws a JavaScript error, and catches all errors at the end.
 
-
 ## Contributing
 
 This module has a full suite of unit tests, and is verified with ESLint. You can use the following commands to check your code before opening a pull request.
@@ -348,10 +367,10 @@ If you have any questions or comments about this module, or need help using it, 
 
 ## Licence
 
-This software is published by the Founders Lair under the [MIT licence][license].
+This software is published under the [MIT licence][license].
 
 [express]: http://expressjs.com/
 [license]: http://opensource.org/licenses/MIT
 [node.js]: https://nodejs.org/
 [npm]: https://www.npmjs.com/
-[Bobby Support]: jon@founderslair.com
+[bobby support]: jon@founderslair.com
