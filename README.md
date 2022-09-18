@@ -1,6 +1,6 @@
 # Bobbyjs - Automate CRUD and advanced query API with expressJS
 
-Create [Express] APIs to serve [founderslair] Web Application.
+Create [Express] APIs to serve CRUD APIs to your Web Application.
 
 - [Usage](#usage)
   - [Start](#Start)
@@ -59,7 +59,7 @@ In app.js file
 
 ```JS
 const express = require('express');
-const {CRUD, findQuery, getQuery, authorize, handleErrors} = require('reqbobby');
+const {CRUD, findQuery, getQuery, authorize, handleErrors} = require('bobby_query');
 const db = require('./db');
 db();
 const {Product, Profile, Shop} = require('./models');
@@ -302,7 +302,7 @@ Some responses contain more
 ### Custom Middlewares
 
 ```js
-const {CRUD, findQuery, getQuery, authorize, handleErrors} = require('reqbobby');
+const {CRUD, findQuery, getQuery, authorize, handleErrors} = require('bobby_query');
 const ProductModel = require('./models)
 
 router.get('/products/:company', (req, res, next) => {
@@ -356,6 +356,10 @@ This endpoint simply throws a JavaScript error, and catches all errors at the en
 ## Licence
 
 This software is published under the [MIT licence][license].
+
+## Example code
+
+https://github.com/jonjj2016/bobby_express_app.git
 
 [express]: http://expressjs.com/
 [license]: http://opensource.org/licenses/MIT
