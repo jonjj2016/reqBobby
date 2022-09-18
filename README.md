@@ -361,10 +361,6 @@ This module has a full suite of unit tests, and is verified with ESLint. You can
 npm test    # run the unit tests and check coverage
 ```
 
-## Contact
-
-If you have any questions or comments about this module, or need help using it, please visit [#flair-support] or email [Flair Back End Support].
-
 ## Licence
 
 This software is published under the [MIT licence][license].
