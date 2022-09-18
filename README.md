@@ -353,14 +353,6 @@ Bobby is tool to help you create robust APIs with advanced query features, give 
 
 This endpoint simply throws a JavaScript error, and catches all errors at the end.
 
-## Contributing
-
-This module has a full suite of unit tests, and is verified with ESLint. You can use the following commands to check your code before opening a pull request.
-
-```sh
-npm test    # run the unit tests and check coverage
-```
-
 ## Licence
 
 This software is published under the [MIT licence][license].
