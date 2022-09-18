@@ -1,6 +1,6 @@
 {
   "name": "bobby_query",
-  "version": "1.0.0",
+  "version": "1.0.11",
   "description": "Easily Create [Express] APIs to serve  Web Application.",
   "main": "index.js",
   "scripts": {
