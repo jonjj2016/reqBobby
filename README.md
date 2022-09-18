@@ -37,7 +37,7 @@ npm start
 In our Server we user centralized Error Handling
 
 ```js
-const asyncHandler = require('express-async-handler')
+const { asyncHandler } = require('bobby_query')
 ```
 
 ```js
@@ -50,6 +50,7 @@ const controller = asyncHandler(async (req, res) => {
     res.status(stausCode)
     throw new Error('Your Eroor message')
   }
+  res.status(200).json({ ...req.Bobby })
 })
 ```
 
