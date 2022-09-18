@@ -11,9 +11,9 @@
     "url": "git+https://github.com/jonjj2016/reqBobby.git"
   },
   "keywords": [
-    "[\"express\"",
-    "[\"mongodb\"",
-    "[\"CRUD\"",
+    "\"express\"",
+    "\"mongodb\"",
+    "\"CRUD\"",
     "\"mongoose\"",
     "\"nodejs\"",
     "\"API\"",
