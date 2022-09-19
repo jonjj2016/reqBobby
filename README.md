@@ -23,7 +23,7 @@ Create [Express] APIs to serve CRUD APIs to your Web Application.
 First you need to install the package:
 
 ```sh
-npm install reqbobby
+npm i bobby_query
 ```
 
 To start the server:
