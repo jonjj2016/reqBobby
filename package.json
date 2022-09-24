@@ -1,6 +1,6 @@
 {
   "name": "bobby_query",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "Easily Create [Express] APIs to serve  Web Application.",
   "main": "index.js",
   "scripts": {
@@ -11,15 +11,17 @@
     "url": "git+https://github.com/jonjj2016/reqBobby.git"
   },
   "keywords": [
-    "\"express\"",
-    "\"mongodb\"",
-    "\"CRUD\"",
-    "\"mongoose\"",
-    "\"nodejs\"",
-    "\"API\"",
-    "\"populate\"",
-    "\"query\"",
-    "pagination"
+    "express",
+    "mongodb",
+    "CRUD",
+    "mongoose",
+    "nodejs",
+    "API",
+    "populate",
+    "query",
+    "pagination",
+    "Error Handling",
+    "asyncHandler"
   ],
   "author": "Jon Martirosyan",
   "license": "ISC",
