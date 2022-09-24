@@ -1,6 +1,6 @@
 {
   "name": "bobby_query",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "description": "Easily Create [Express] APIs to serve  Web Application.",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,8 @@
     "\"nodejs\"",
     "\"API\"",
     "\"populate\"",
-    "\"query\""
+    "\"query\"",
+    "pagination"
   ],
   "author": "Jon Martirosyan",
   "license": "ISC",
