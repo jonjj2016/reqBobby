@@ -47,8 +47,8 @@ const controller = asyncHandler(async (req, res) => {
   const statusCode = 'any'
 
   if (condition) {
-    res.status(stausCode)
-    throw new Error('Your Eroor message')
+    res.status(statusCode)
+    throw new Error('Your Error message')
   }
   res.status(200).json({ ...req.Bobby })
 })
