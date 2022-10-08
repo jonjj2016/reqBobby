@@ -111,7 +111,10 @@ const findQuery = (model, populate) =>
     // Create Query string
     let queryStr = JSON.stringify(reqQuery)
 
-    queryStr = queryStr.replace(/\b(or|gte)\b/g, (match) => `$${match}`)
+    queryStr = queryStr.replace(
+      /\b(or|gte|gt|lte|lt|ne|and|eq|not)\b/g,
+      (match) => `$${match}`,
+    )
     // Finding resources
     query = model.find(JSON.parse(queryStr))
     // Finding resources
