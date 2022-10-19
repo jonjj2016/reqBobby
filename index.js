@@ -131,7 +131,7 @@ const findQuery = (model, populate) =>
     const limit = parseInt(req.query.limit, 10) || 10
     const startIndex = (page - 1) * limit
     const endIndex = page * limit
-    const total = await model.countDocuments()
+    const total = await model.countDocuments(JSON.parse(queryStr))
     query.skip(startIndex).limit(limit)
     if (populate) {
       query = query.populate(populate)
